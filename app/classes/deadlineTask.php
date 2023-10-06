@@ -3,10 +3,15 @@
 namespace app\classes;
 
 use app\classes\Task;
+use app\traits\HashAssaigneTrait;
+use app\interface\HasDueDateinterface;
+use app\interface\HasStartDateinterface;
 
-
-class DeadlineTask extends Task
+class DeadlineTask extends Task implements HasDueDateinterface, HasStartDateinterface
 {
+    use HashAssaigneTrait;
+
+
     protected $startDate;
     protected $dueDate;
 

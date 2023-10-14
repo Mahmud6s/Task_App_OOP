@@ -1,46 +1,43 @@
 <?php
+namespace app\Classes;
 
-namespace app\classes;
+use app\Classes\Task;
+use app\Interfaces\HasDueDateInterface;
+use app\Interfaces\HasStartDateInterface;
+use app\Traits\HasAssigneeTrait;
 
-use app\classes\Task;
-use app\traits\HashAssaigneTrait;
-use app\interface\HasDueDateinterface;
-use app\interface\HasStartDateinterface;
-
-class DeadlineTask extends Task implements HasDueDateinterface, HasStartDateinterface
+class DeadlineTask extends Task implements HasDueDateInterface, HasStartDateInterface
 {
-    use HashAssaigneTrait;
-
+    use HasAssigneeTrait;
 
     protected $startDate;
     protected $dueDate;
 
-    //method
-    public function __construct($title, $description, $startDate, $dueDate)
+    //Methods
+    public function __construct( $title, $description, $startDate, $dueDate )
     {
-        parent::__construct($title, $description);
+        parent::__construct( $title, $description );
         $this->startDate = $startDate;
-        $this->dueDate = $dueDate;
+        $this->dueDate   = $dueDate;
     }
 
-    //getter method
+    //Getters
     public function getStartDate()
     {
         return $this->startDate;
     }
-
     public function getDueDate()
     {
         return $this->dueDate;
     }
-    
+
     public function getPriority()
     {
         return "Low";
     }
-
-    public function marksCompleted()
+    public function markAsCompleted()
     {
         $this->completed = true;
     }
+
 }

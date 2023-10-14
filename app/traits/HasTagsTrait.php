@@ -1,12 +1,11 @@
 <?php
+namespace app\Traits;
 
-namespace app\traits;
-
-trait HasTagsTraits
+trait HasTagsTrait
 {
     protected $tags = [];
 
-    public function addTag($tag)
+    public function addTag( $tag )
     {
         $this->tags[] = $tag;
     }
@@ -15,4 +14,5 @@ trait HasTagsTraits
     {
         return $this->tags;
     }
+
 }

@@ -1,42 +1,36 @@
 <?php
-
-namespace app\classes;
-
-
+namespace app\Classes;
 
 abstract class Task
 {
-
     protected $title;
     protected $description;
     protected $completed;
 
-
-    //method
-    public function __construct($title, $description)
+    //Methods
+    public function __construct( $title, $description )
     {
-        $this->title = $title;
+        $this->title       = $title;
         $this->description = $description;
-        $this->completed = false;
+        $this->completed   = false;
     }
 
-    //Abstract method
+    //Abstract Methods
     abstract public function getPriority();
-    abstract public function marksCompleted();
+    abstract public function markAsCompleted();
 
-    //getter methods
+    //Getters
     public function getTitle()
     {
         return $this->title;
     }
-
     public function getDescription()
     {
         return $this->description;
     }
-
-    public function getComplete()
+    public function isCompleted()
     {
         return $this->completed;
     }
+
 }
